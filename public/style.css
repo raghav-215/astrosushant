@@ -490,35 +490,137 @@ body {
   color: #aaa;
 }
 
-/*=============================================
-  Responsive Breakpoints
-=============================================*/
-@media (max-width: 992px) {
-  .hero__content,
-  .consultation__content,
-  .about__content,
-  .contact__content {
-    flex-direction: column;
+/*──────────────────────────────────────────
+  Base styles (Extra‑Small: <480px)
+  portrait phones get your default CSS here
+──────────────────────────────────────────*/
+
+/*──────────────────────────────────────────
+  Small (Landscape phones): 480px – 767px
+──────────────────────────────────────────*/
+@media (min-width: 480px) and (max-width: 767px) {
+  /* container padding */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* nav links a bit larger, more breathing room */
+  .nav__menu li a {
+    font-size: 0.95rem;
+    padding: 0.5rem;
+  }
+
+  /* hero text smaller to fit */
+  .hero__text h2 {
+    font-size: 2rem;
+  }
+
+  /* stack services if needed */
+  .services__grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+/*──────────────────────────────────────────
+  Medium (Portrait tablets): 768px – 1023px
+──────────────────────────────────────────*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* widen container */
+  .container {
+    max-width: 720px;
+    padding: 0 1.5rem;
+  }
+
+  /* restore two‑column layouts */
+  .hero__content,
+  .consultation__content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+/*──────────────────────────────────────────
+  Large (Landscape tablets / Laptops): 
+  1024px – 1199px
+──────────────────────────────────────────*/
+@media (min-width: 1024px) and (max-width: 1199px) {
+  /* widen container further */
+  .container {
+    max-width: 960px;
+  }
+
+  /* three‑column services */
+  .services__grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+
+  /* slightly larger headings */
+  .hero__text h2 {
+    font-size: 2.75rem;
+  }
+}
+
+/*──────────────────────────────────────────
+  Extra‑Large (Desktops): ≥1200px
+──────────────────────────────────────────*/
+@media (min-width: 1200px) {
+  /* max container */
+  .container {
+    max-width: 1140px;
+  }
+
+  /* full four‑column services */
+  .services__grid {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+
+  /* restore full nav, hide mobile button */
   .nav__menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    width: 200px;
-    border: 1px solid #ddd;
+    display: flex !important;
+    position: static;
+    background: none;
+    border: none;
+  }
+  .mobile-menu-btn {
     display: none;
   }
 
-  .nav__menu--active {
-    display: flex;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
+  /* optionally bump up font sizes */
+  .hero__text h2 {
+    font-size: 3rem;
   }
 }
+
+
+
+
+
+/* Services Section */
+.services__grid {
+  display: grid;
+  /* force exactly 4 columns on desktop for perfect symmetry */
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* on narrower viewports, fall back to auto-fit */
+@media (max-width: 992px) {
+  .services__grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* center the 5th and 6th cards under columns 2 & 3 */
+.services__grid .service-card:nth-child(5) {
+  grid-column: 2;
+}
+.services__grid .service-card:nth-child(6) {
+  grid-column: 3;
+}
+
