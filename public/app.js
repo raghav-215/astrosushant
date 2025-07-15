@@ -3,18 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
    * 1. Mobile-menu toggle
    * ───────────────────────────────────────── */
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const navMenu = document.getElementById('navMenu');
+  const navMenu       = document.getElementById('navMenu');
 
   if (mobileMenuBtn && navMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      // toggle the CSS class that shows/hides the menu
+      navMenu.classList.toggle('nav__menu--active');
+      // animate the hamburger spans
       mobileMenuBtn.querySelectorAll('span')
         .forEach(span => span.classList.toggle('active'));
     });
 
+    // when a menu link is clicked, hide the menu again
     navMenu.querySelectorAll('a').forEach(link =>
       link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        navMenu.classList.remove('nav__menu--active');
         mobileMenuBtn.querySelectorAll('span')
           .forEach(span => span.classList.remove('active'));
       })
@@ -30,21 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
     consultationForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const submitBtn = consultationForm.querySelector('button[type="submit"]');
+      const submitBtn    = consultationForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
 
-      // UI Feedback
       submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
+      submitBtn.disabled    = true;
 
       const formData = new FormData(consultationForm);
 
       try {
-              const response = await fetch('/api/submit', {
+        const response = await fetch('/api/submit', {
           method: 'POST',
           body: formData
         });
-
         const data = await response.json();
 
         if (response.ok && data.status?.includes('sent')) {
@@ -58,20 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`❌ Network error: ${error.message}`);
       } finally {
         submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        submitBtn.disabled    = false;
       }
     });
   }
 
   /* ─────────────────────────────────────────
-   * 3. Card animation on scroll (Fade-in)
+   * 3. Card animation on scroll (Fade‑in)
    * ───────────────────────────────────────── */
   const cards = document.querySelectorAll('.service-card, .contact__card');
 
   if (cards.length) {
     cards.forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
+      card.style.opacity       = '0';
+      card.style.transform     = 'translateY(20px)';
     });
 
     const observer = new IntersectionObserver((entries, io) => {
@@ -81,9 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
           io.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     cards.forEach(card => observer.observe(card));
 
