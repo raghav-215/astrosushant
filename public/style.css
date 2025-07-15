@@ -1,5 +1,5 @@
 /*=============================================
-  Variables & Reset
+  1. Variables & Reset
 =============================================*/
 :root {
   --primary-color: #CD5C5C;
@@ -31,33 +31,59 @@ body {
 }
 
 /*=============================================
-  Utility Classes
+  2. Container Utility (mobile‑first)
 =============================================*/
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+/* xs ≥475px */
+@media (min-width: 475px) {
+  .container { max-width: 475px; }
+}
+/* sm ≥640px */
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+/* md ≥768px */
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+/* lg ≥1024px */
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+/* xl ≥1280px */
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+/* 2xl ≥1536px */
+@media (min-width: 1536px) {
+  .container { max-width: 1536px; }
 }
 
+/*=============================================
+  3. Base Styles (Extra‑Small: <475px)
+=============================================*/
+/* Section headers */
 .section-header {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .section-header h2 {
   font-family: var(--heading-font);
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
-
 .section-header p {
   color: #555;
 }
 
-/*=============================================
-  Buttons
-=============================================*/
+/* Buttons */
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -66,46 +92,25 @@ body {
   transition: background 0.3s, color 0.3s;
   cursor: pointer;
 }
-
 .btn--primary {
   background: var(--primary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
 }
-
-.btn--primary:hover {
-  background: rgba(var(--primary-rgb), 0.85);
-}
-
 .btn--outline {
   background: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
   padding: 0.7rem 1.4rem;
 }
-
-.btn--outline:hover {
-  background: var(--primary-color);
-  color: #fff;
-}
-
 .btn--secondary {
   background: #f7f7f7;
   color: var(--primary-color);
   padding: 0.7rem 1.4rem;
 }
+.btn--full-width { width: 100%; }
 
-.btn--secondary:hover {
-  background: rgba(var(--primary-rgb), 0.1);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-/*=============================================
-  Header & Navigation (base: Extra‑Small <480px)
-=============================================*/
+/* Header & Nav */
 .header {
   background: #fff;
   border-bottom: 2px solid var(--primary-color);
@@ -113,7 +118,6 @@ body {
   top: 0;
   z-index: 1000;
 }
-
 .header__content {
   display: flex;
   flex-direction: column;
@@ -121,47 +125,30 @@ body {
   gap: 0.5rem;
   padding: 1rem 0;
 }
-
 .logo h1 {
   font-family: var(--heading-font);
   color: var(--primary-color);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.2;
 }
-
 .tagline {
   font-size: 0.8rem;
   color: #666;
 }
-
 .contact-info {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.contact-info p {
   font-size: 0.8rem;
-  color: #555;
 }
-
 .nav__menu {
   display: none;
   flex-direction: column;
   width: 100%;
 }
-
 .nav__menu--active {
   display: flex;
 }
-
-.nav__menu li a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 0;
-}
-
 .mobile-menu-btn {
   display: flex;
   flex-direction: column;
@@ -171,60 +158,47 @@ body {
   cursor: pointer;
   align-self: flex-end;
 }
-
 .mobile-menu-btn span {
-  display: block;
-  width: 25px;
-  height: 3px;
+  width: 25px; height: 3px;
   background: var(--text-color);
   transition: transform 0.3s;
 }
 
-/*=============================================
-  Hero Section
-=============================================*/
+/* Hero */
 .hero {
   padding: 2rem 0;
 }
-
 .hero__content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 .hero__text h2 {
   font-size: 1.8rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
 }
-
 .hero__text p {
   font-size: 0.95rem;
   margin-bottom: 1rem;
 }
-
 .hero__buttons {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .hero__image img {
   max-width: 100%;
   border-radius: 8px;
 }
 
-/*=============================================
-  Services Section
-=============================================*/
+/* Services */
 .services__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
-
 .service-card {
   background: #fafafa;
   padding: 1rem;
@@ -232,93 +206,49 @@ body {
   text-align: center;
   transition: transform 0.3s;
 }
-
 .service-card:hover {
   transform: translateY(-5px);
 }
-
 .service-card__icon {
   font-size: 2rem;
   color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 
-.service-card h3 {
-  margin-bottom: 0.5rem;
-}
-
-/*=============================================
-  Consultation Section
-=============================================*/
+/* Consultation */
 .consultation {
   padding: 2rem 0;
   background: #fafafa;
 }
-
 .consultation__content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
-
-.consultation__image {
-  width: 100%;
-  max-width: 450px;
-}
-
 .consultation__image img {
   width: 100%;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-.consultation__form {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  border: 1px solid #e5e7eb;
-}
-
-/*=============================================
-  About Section
-=============================================*/
+/* About */
 .about {
   padding: 2rem 0;
   background: var(--bg-color);
   margin-bottom: 2rem;
 }
-
 .about__content {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
-.astrologer-img {
-  background: linear-gradient(135deg, #cd5c5c, #f08080);
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 4rem;
-  margin: 0 auto;
-}
-
-/*=============================================
-  Contact Section
-=============================================*/
+/* Contact */
 .contact {
   padding: 2rem 0;
   background: #f9f9f9;
-  text-align: center;
-  margin-bottom: 2rem;
 }
-
 .contact__info {
   display: grid;
   grid-template-columns: 1fr;
@@ -327,15 +257,12 @@ body {
   margin: 0 auto;
 }
 
-/*=============================================
-  Footer
-=============================================*/
+/* Footer */
 .footer {
   background: #222;
   color: #eee;
   padding: 2rem 0;
 }
-
 .footer__content {
   display: grid;
   grid-template-columns: 1fr;
@@ -343,92 +270,53 @@ body {
 }
 
 /*=============================================
-  Responsive Breakpoints (mobile‑first)
+  4. Mobile‑First Media Queries
 =============================================*/
-
-/* Small (Landscape phones): 480px – 767px */
-@media (min-width: 480px) and (max-width: 767px) {
-  .container {
-    padding: 0 1rem;
-  }
-  .nav__menu {
+/* xs ≥475px */
+@media (min-width: 475px) {
+  .nav__menu { /* show inline nav */
     display: flex;
-    flex-direction: row;
   }
   .mobile-menu-btn {
     display: none;
   }
-  .hero__text h2 {
-    font-size: 2rem;
-  }
-  .services__grid {
-    grid-template-columns: 1fr;
-  }
 }
 
-/* Medium (Portrait tablets): 768px – 1023px */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    max-width: 720px;
-    padding: 0 1.5rem;
-  }
-  .header__content {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+/* sm ≥640px */
+@media (min-width: 640px) {
+  .section-header h2 { font-size: 2.25rem; }
+  .hero__text h2   { font-size: 2rem;    }
+}
+
+/* md ≥768px */
+@media (min-width: 768px) {
   .hero__content,
   .consultation__content,
   .about__content,
   .contact__content {
-    display: flex;
     flex-direction: row;
     gap: 2rem;
   }
   .services__grid {
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(220px,1fr));
   }
 }
 
-/* Large (Landscape tablets / Laptops): 1024px – 1199px */
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .container {
-    max-width: 960px;
-  }
+/* lg ≥1024px */
+@media (min-width: 1024px) {
   .services__grid {
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
-  }
-  .hero__text h2 {
-    font-size: 2.75rem;
+    grid-template-columns: repeat(3, minmax(220px,1fr));
   }
 }
 
-/* Extra‑Large (Desktops): ≥1200px */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-  .nav__menu {
-    display: flex !important;
-    flex-direction: row;
-    background: none;
-    border: none;
-  }
-  .mobile-menu-btn {
-    display: none;
-  }
+/* xl ≥1280px */
+@media (min-width: 1280px) {
   .services__grid {
-    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, minmax(220px,1fr));
   }
-  .hero__text h2 {
-    font-size: 3rem;
-  }
-  
-  /* center the 5th & 6th cards */
-  .services__grid .service-card:nth-child(5) {
-    grid-column: 2;
-  }
-  .services__grid .service-card:nth-child(6) {
-    grid-column: 3;
-  }
+}
+
+/* 2xl ≥1536px */
+@media (min-width: 1536px) {
+  /* extra spacing or font tweaks if desired */
 }
