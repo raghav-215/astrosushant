@@ -162,7 +162,7 @@ ul { list-style: none; }
 
 /*==================== LAYOUT ====================*/
 /*=============================================
-  Header & Navigation
+  Header & Navigation (Fixed)
 =============================================*/
 .header {
   background: #fff;
@@ -176,23 +176,26 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 0.5rem 1rem; /* Reduced top/bottom padding */
+  min-height: 60px; /* Optional: set a consistent height */
 }
 
 .logo h1 {
   font-family: var(--heading-font);
   color: var(--primary-color);
+  margin: 0; /* Ensure no extra margin */
 }
 
 .tagline {
   font-size: 0.9rem;
   color: #666;
+  margin: 0;
 }
 
 .contact-info p {
   font-size: 0.9rem;
   color: #555;
-  margin-bottom: 0.25rem;
+  margin: 0.1rem 0; /* Reduced spacing */
 }
 
 .nav__menu {
@@ -210,19 +213,23 @@ ul { list-style: none; }
 .nav__menu li a:hover {
   color: var(--primary-color);
 }
+
 .mobile-menu-btn {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  padding: 0;
+  margin: 0;
 }
+
 .mobile-menu-btn span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-color);
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
 }
 
 /*==================== SECTIONS ====================*/
@@ -276,27 +283,67 @@ ul { list-style: none; }
     margin-bottom: var(--mb-0-5);
 }
 
-/* Consultation */
-.consultation {
-    padding: 2rem 0;
-    background: var(--first-color-lighter);
-}
-.consultation__content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.consultation__image img {
-    border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-}
+/*─────────────────────────────────────────
+  Consultation Form: fixed max‑width grid
+─────────────────────────────────────────*/
 .consultation__form {
-    padding: 1.5rem;
-    background: var(--container-color);
-    border: 1px solid hsl(0,0%,90%);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-width: 600px;           /* limit width */
+  margin: 0 auto;             /* center on page */
+  padding: 2rem;              /* inner breathing room */
+  display: grid;
+  grid-template-columns: 1fr; /* one‑column layout */
+  gap: 1.5rem;                /* vertical spacing */
 }
+
+/* wrap each label+control */
+.consultation__form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* labels */
+.consultation__form .form-group label {
+  margin-bottom: .5rem;
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+/* inputs, selects, textarea */
+.consultation__form input,
+.consultation__form select,
+.consultation__form textarea {
+  width: 100%;
+  padding: .75rem 1rem;
+  font-size: var(--normal-font-size);
+  border: 1px solid hsl(0,0%,80%);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--text-color);
+  resize: vertical;           /* allow textarea vertical resize */
+  box-sizing: border-box; /* include padding/border in width */
+}
+
+/* ensure select arrow doesn’t overlap text */
+.consultation__form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='5'><path fill='%23333' d='M0 0l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: .65rem .35rem;
+  padding-right: 2.5rem;
+}
+
+/* full‑width submit button, but constrain max‑width */
+.consultation__form button[type="submit"] {
+  width: 100%;
+  max-width: 300px;
+  justify-self: center;
+  padding: .75rem 1.5rem;
+  font-size: var(--normal-font-size);
+  border-radius: 4px;
+}
+
 
 /* About */
 .about {
