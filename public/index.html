@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sushant Sharma - Astrology Consultant</title>
+    <title>Acharya Sushant Sharma - Astrology Consultant</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -14,22 +14,26 @@
                 <div class="logo">
                     <h1>Acharya Sushant Sharma</h1>
                     <p class="tagline">Astrology Consultant</p>
+                    <!-- Added Qualifications -->
+                    <div class="qualifications">
+                        <p><i class="fas fa-graduation-cap"></i> Acharya from Sampurnanand Sanskrit University, Kashi</p>
+                        <p><i class="fas fa-graduation-cap"></i> Karm Kand Diploma from Sampurnanand Sanskrit University, Kashi</p>
+                    </div>
                 </div>
-                <div class="contact-info">
+                <div class="contact-info-header">
                     <p><i class="fas fa-map-marker-alt"></i> Ghagwal Jatwal J&K</p>
                     <p><i class="fas fa-phone"></i> 9149856750</p>
                 </div>
                 <nav class="nav">
                     <button class="mobile-menu-btn" id="mobileMenuBtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
                     </button>
                     <ul class="nav__menu" id="navMenu">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#kundali">Kundali</a></li>
-                
+                        <li><a href="#consultation">Consultation</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -45,7 +49,7 @@
                 <div class="hero__content">
                     <div class="hero__text">
                         <h2>Unlock the Wisdom of the Stars</h2>
-                        <p>Welcome to the official website of Sushant Sharma, your trusted astrology consultant with years of experience in Vedic astrology, horoscope reading, and spiritual guidance.</p>
+                        <p>Welcome to the official website of Acharya Sushant Sharma, your trusted astrology consultant with years of experience in Vedic astrology, horoscope reading, and spiritual guidance.</p>
                         <div class="hero__buttons">
                             <a href="#consultation" class="btn btn--primary">Book Consultation</a>
                             <a href="#services" class="btn btn--outline">Explore Services</a>
@@ -59,137 +63,101 @@
         </section>
 
        <!-- Services Section -->
-<section id="services" class="services">
-  <div class="container">
-    <div class="section-header">
-      <h2>Our Services</h2>
-      <p>Discover how the cosmic energies can transform your life</p>
-    </div>
-    <div class="services__grid">
-      <!-- existing four cards -->
-      <div class="service-card">
-        <div class="service-card__icon">
-          <i class="fas fa-comments"></i>
-        </div>
-        <h3>Online Consultation</h3>
-        <p>Personal one-on-one sessions to address your specific questions and concerns.</p>
-        <a href="#consultation" class="btn btn--secondary"></a>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <h3>Personalized Kundali</h3>
-        <p>Detailed birth chart analysis based on your exact birth details.</p>
-        <a href="#kundali" class="btn btn--secondary"></a>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <h3>Prediction Reports</h3>
-        <p>10+ years detailed prediction for career, business, money, health & marriage.</p>
-        <a href="#predictions" class="btn btn--secondary"></a>
-      </div>
-      <div class="service-card">
-        <div class="service-card__icon">
-          <i class="fas fa-heart"></i>
-        </div>
-        <h3>Couple Kundali</h3>
-        <p>Compatibility analysis and marriage predictions for couples.</p>
-        <a href="#couple-kundali" class="btn btn--secondary"></a>
-      </div>
-
-      <!-- new card: Karm Kand (Pujas) -->
-      <div class="service-card">
-        <div class="service-card__icon">
-          <i class="fas fa-praying-hands"></i>
-        </div>
-        <h3>Karm Kand (Pujas)</h3>
-        <p>Conduct sacred rituals and pujas to align cosmic energies and remove obstacles.</p>
-        <a href="#pujas" class="btn btn--secondary"></a>
-      </div>
-
-      <!-- new card: Gemstone & Rudraksh -->
-      <div class="service-card">
-        <div class="service-card__icon">
-          <i class="fas fa-gem"></i>
-        </div>
-        <h3>Gemstone & Rudraksh</h3>
-        <p>Personalized gemstone and rudraksh recommendations based on your birth chart for holistic well-being.</p>
-        <a href="#gemstones" class="btn btn--secondary"></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
- <!-- Consultation Section -->
-<section id="consultation" class="consultation">
-  <div class="container">
-    <div class="section-header">
-      <h2>Online Consultation</h2>
-      <p>Speak directly with Sushant Sharma for personalized guidance</p>
-    </div>
-    <div class="consultation__content">
-      <div class="consultation__image">
-        <img
-          src="https://i0.wp.com/pujabooking.com/wp-content/uploads/2023/11/astrology-consultation-pujabooking-online.png?fit=1080%2C1080&ssl=1"
-          alt="Astrology Consultation"
-        >
-      </div>
-      <div class="consultation__form">
-        <form
-          id="consultationForm"
-          class="form"
-          method="POST"
-          action="/api/submit"
-        >
-          <div class="form-group">
-            <label class="form-label" for="name">Full Name</label>
-            <input type="text" id="name" name="name" class="form-control" required>
+        <section id="services" class="services">
+          <div class="container">
+            <div class="section-header">
+              <h2>Our Services</h2>
+              <p>Discover how the cosmic energies can transform your life</p>
+            </div>
+            <div class="services__grid">
+              <div class="service-card">
+                <div class="service-card__icon"><i class="fas fa-comments"></i></div>
+                <h3>Online Consultation</h3>
+                <p>Personal one-on-one sessions to address your specific questions and concerns.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-card__icon"><i class="fas fa-star"></i></div>
+                <h3>Personalized Kundali</h3>
+                <p>Detailed birth chart analysis based on your exact birth details.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-card__icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Prediction Reports</h3>
+                <p>10+ years detailed prediction for career, business, money, health & marriage.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-card__icon"><i class="fas fa-heart"></i></div>
+                <h3>Couple Kundali</h3>
+                <p>Compatibility analysis and marriage predictions for couples.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-card__icon"><i class="fas fa-praying-hands"></i></div>
+                <h3>Karm Kand (Pujas)</h3>
+                <p>Conduct sacred rituals and pujas to align cosmic energies and remove obstacles.</p>
+              </div>
+              <div class="service-card">
+                <div class="service-card__icon"><i class="fas fa-gem"></i></div>
+                <h3>Gemstone & Rudraksh</h3>
+                <p>Personalized gemstone and rudraksh recommendations based on your birth chart.</p>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="consultationType">Consultation Type</label>
-            <select id="consultationType" name="consultation_type" class="form-control" required>
-              <option value="">Select Type</option>
-              <option value="career">Career & Professional Growth</option>
-              <option value="business">Business & Entrepreneurship</option>
-              <option value="money">Money & Financial Planning</option>
-              <option value="health">Health & Wellness</option>
-              <option value="love">Love & Romance</option>
-              <option value="marriage">Marriage & Family Life</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="question">Your Question</label>
-            <textarea id="question" name="question" class="form-control" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full-width">
-            Book Consultation
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
 
-      
+        <!-- Consultation Section -->
+        <section id="consultation" class="consultation">
+          <div class="container">
+            <div class="section-header">
+              <h2>Online Consultation</h2>
+              <p>Speak directly with Acharya Sushant Sharma for personalized guidance</p>
+            </div>
+            <div class="consultation__content">
+              <div class="consultation__image">
+                <img src="https://i0.wp.com/pujabooking.com/wp-content/uploads/2023/11/astrology-consultation-pujabooking-online.png?fit=1080%2C1080&ssl=1" alt="Astrology Consultation">
+              </div>
+              <div class="consultation__form-container">
+                <form id="consultationForm" class="form" method="POST" action="/api/submit">
+                  <div class="form-group">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="consultationType">Consultation Type</label>
+                    <select id="consultationType" name="consultation_type" class="form-control" required>
+                      <option value="">Select Type</option>
+                      <option value="career">Career & Professional Growth</option>
+                      <option value="business">Business & Entrepreneurship</option>
+                      <option value="money">Money & Financial Planning</option>
+                      <option value="health">Health & Wellness</option>
+                      <option value="love">Love & Romance</option>
+                      <option value="marriage">Marriage & Family Life</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="question">Your Question</label>
+                    <textarea id="question" name="question" class="form-control" rows="4" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn--primary btn--full-width">Book Consultation</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       
         <!-- About Section -->
         <section id="about" class="about">
             <div class="container">
                 <div class="section-header">
-                    <h2>About Sushant Sharma</h2>
+                    <h2>About Acharya Sushant Sharma</h2>
                     <p>Learn about your trusted astrology consultant</p>
                 </div>
                 <div class="about__content">
@@ -199,7 +167,7 @@
                         </div>
                     </div>
                     <div class="about__text">
-                        <p>Sushant Sharma is a renowned astrologer with extensive knowledge in Vedic astrology, numerology, and vastu shastra. With years of dedicated practice, he has helped thousands of individuals find clarity and direction in their lives.</p>
+                        <p>Acharya Sushant Sharma is a renowned astrologer with extensive knowledge in Vedic astrology, numerology, and vastu shastra. With years of dedicated practice, he has helped thousands of individuals find clarity and direction in their lives.</p>
                         <p>Based in Ghagwal Jatwal, Jammu & Kashmir, Sushant combines traditional Vedic wisdom with modern approaches to provide practical solutions to life's challenges. His accurate predictions and compassionate guidance have earned him the trust and respect of clients across the country.</p>
                         <p>Specializing in career guidance, relationship counseling, business predictions, and health analysis, Sushant believes that astrology is not just about predicting the future but empowering individuals to make better choices by understanding the cosmic influences in their lives.</p>
                         <div class="expertise">
@@ -225,37 +193,26 @@
                     <p>Reach out for inquiries and appointments</p>
                 </div>
                 <div class="contact__content">
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <h3>Address</h3>
-                            <p>Ghagwal Jatwal J&K</p>
-                        </div>
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <h3>Phone</h3>
-                            <p>9149856750</p>
-                        </div>
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h3>Email</h3>
-                            <p>astrosushantpandit@gmail.com</p>
-                        </div>
-                        <div class="contact__card">
-                            <div class="contact__icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3>Consultation Hours</h3>
-                            <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                        </div>
+                    <div class="contact__card">
+                        <div class="contact__icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Address</h3>
+                        <p>Ghagwal Jatwal J&K</p>
                     </div>
-                   
+                    <div class="contact__card">
+                        <div class="contact__icon"><i class="fas fa-phone"></i></div>
+                        <h3>Phone</h3>
+                        <p>9149856750</p>
+                    </div>
+                    <div class="contact__card">
+                        <div class="contact__icon"><i class="fas fa-envelope"></i></div>
+                        <h3>Email</h3>
+                        <p>astrosushantpandit@gmail.com</p>
+                    </div>
+                    <div class="contact__card">
+                        <div class="contact__icon"><i class="fas fa-clock"></i></div>
+                        <h3>Consultation Hours</h3>
+                        <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -264,17 +221,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
-                <div class="footer__logo">
-                    <h2>Sushant Sharma</h2>
-                    <p>Astrology Consultant</p>
+                <div class="footer__about">
+                    <h2>Acharya Sushant Sharma</h2>
+                    <p>Your trusted guide to the cosmos. Offering clarity and wisdom through Vedic astrology.</p>
                 </div>
                 <div class="footer__links">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#kundali">Kundali</a></li>
-                        <li><a href="#zodiac">Zodiac Signs</a></li>
+                        <li><a href="#consultation">Consultation</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -282,21 +238,21 @@
                 <div class="footer__services">
                     <h3>Our Services</h3>
                     <ul>
-                        <li><a href="#consultation">Online Consultation</a></li>
-                        <li><a href="#kundali">Personalized Kundali</a></li>
-                        <li><a href="#predictions">Prediction Reports</a></li>
-                        <li><a href="#couple-kundali">Couple Kundali</a></li>
+                        <li><a href="#">Online Consultation</a></li>
+                        <li><a href="#">Personalized Kundali</a></li>
+                        <li><a href="#">Prediction Reports</a></li>
+                        <li><a href="#">Couple Kundali</a></li>
                     </ul>
                 </div>
                 <div class="footer__contact">
                     <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Ghagwal Jatwal  J&K</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ghagwal Jatwal J&K</p>
                     <p><i class="fas fa-phone"></i> 9149856750</p>
                     <p><i class="fas fa-envelope"></i> astrosushantpandit@gmail.com</p>
                 </div>
             </div>
             <div class="footer__bottom">
-                <p>&copy; 2025 Sushant Sharma. All Rights Reserved.</p>
+                <p>&copy; 2025 Acharya Sushant Sharma. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
