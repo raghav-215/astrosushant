@@ -26,7 +26,7 @@
     --small-font-size: 0.9rem;
 
     /* Spacing & Radius */
-    --header-height: 5.5rem; /* Adjusted for content */
+    --header-height: 6.5rem; /* Increased for mobile */
     --container-padding: 1rem;
     --section-padding: 4rem 0;
     --border-radius: 8px;
@@ -49,7 +49,7 @@ body {
     font-size: var(--normal-font-size);
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.8; /* Increased for readability */
+    line-height: 1.6; /* Increased for readability */
     /* Adjust body padding to prevent content from hiding behind the taller header */
     padding-top: var(--header-height);
 }
@@ -243,7 +243,9 @@ img { max-width: 100%; height: auto; display: block; }
 /*==================================================
   MAIN CONTENT SECTIONS
 ==================================================*/
-
+main {
+    /* Padding is now handled by body tag */
+}
 
 /* Hero Section */
 .hero {
@@ -499,6 +501,7 @@ textarea.form-control {
     :root {
         --h1-font-size: 2.9rem;
         --h2-font-size: 1.9rem;
+        --header-height: 5.5rem; /* Revert for larger screens */
     }
     .container {
         --container-padding: 1.5rem;
