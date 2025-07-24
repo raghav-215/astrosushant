@@ -49,7 +49,7 @@ body {
     font-size: var(--normal-font-size);
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6; /* Increased for readability */
+    line-height: 1.8; /* Increased for readability */
     /* Adjust body padding to prevent content from hiding behind the taller header */
     padding-top: var(--header-height);
 }
@@ -250,7 +250,8 @@ main {
 /* Hero Section */
 .hero {
     background-color: var(--white-color);
-    padding: 3rem 0;
+    /* Increased top padding to add space below the header */
+    padding: 5rem 0;
 }
 
 .hero__content {

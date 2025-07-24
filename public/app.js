@@ -1,27 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   /* ─────────────────────────────────────────
-   * 1. Mobile-menu toggle
+   * 1. Mobile-menu toggle (FIXED)
    * ───────────────────────────────────────── */
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const navMenu       = document.getElementById('navMenu');
+  const navMenu = document.getElementById('navMenu');
 
   if (mobileMenuBtn && navMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-      // toggle the CSS class that shows/hides the menu
-      navMenu.classList.toggle('nav__menu--active');
-      // animate the hamburger spans
-      mobileMenuBtn.querySelectorAll('span')
-        .forEach(span => span.classList.toggle('active'));
+      // Toggle the 'active' class on the menu button (for the 'X' animation)
+      mobileMenuBtn.classList.toggle('active');
+      // Toggle the 'active' class on the nav menu (to slide it in/out)
+      navMenu.classList.toggle('active');
     });
 
-    // when a menu link is clicked, hide the menu again
-    navMenu.querySelectorAll('a').forEach(link =>
+    // When a menu link is clicked, hide the menu again
+    navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('nav__menu--active');
-        mobileMenuBtn.querySelectorAll('span')
-          .forEach(span => span.classList.remove('active'));
-      })
-    );
+        mobileMenuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
   }
 
   /* ─────────────────────────────────────────
@@ -33,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     consultationForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const submitBtn    = consultationForm.querySelector('button[type="submit"]');
+      const submitBtn = consultationForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
 
       submitBtn.textContent = 'Sending...';
-      submitBtn.disabled    = true;
+      submitBtn.disabled = true;
 
       const formData = new FormData(consultationForm);
 
@@ -49,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
 
         if (response.ok && data.status?.includes('sent')) {
+          // Using a more modern, non-blocking notification is better,
+          // but for simplicity, alert is used here as in the original file.
           alert('✅ Your consultation request has been sent successfully!');
           consultationForm.reset();
         } else {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`❌ Network error: ${error.message}`);
       } finally {
         submitBtn.textContent = originalText;
-        submitBtn.disabled    = false;
+        submitBtn.disabled = false;
       }
     });
   }
@@ -70,30 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = document.querySelectorAll('.service-card, .contact__card');
 
   if (cards.length) {
+    // Initial state for animation
     cards.forEach(card => {
-      card.style.opacity       = '0';
-      card.style.transform     = 'translateY(20px)';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
     });
 
     const observer = new IntersectionObserver((entries, io) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, {
+      threshold: 0.1
+    });
 
     cards.forEach(card => observer.observe(card));
-
-    const style = document.createElement('style');
-    style.textContent = `
-      .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-    `;
-    document.head.appendChild(style);
   }
 });
