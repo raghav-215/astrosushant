@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   /* ─────────────────────────────────────────
-   * 1. Mobile-menu toggle (FIXED)
+   * 1. Mobile-menu toggle
    * ───────────────────────────────────────── */
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
@@ -23,46 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─────────────────────────────────────────
-   * 2. Consultation form submit (Fetch + FastAPI)
+   * 2. Consultation form submit (REMOVED)
+   * The form now submits directly via the HTML action attribute.
+   * No JavaScript is needed for this anymore.
    * ───────────────────────────────────────── */
-  const consultationForm = document.getElementById('consultationForm');
-
-  if (consultationForm) {
-    consultationForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const submitBtn = consultationForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-
-      const formData = new FormData(consultationForm);
-
-      try {
-        const response = await fetch('/api/submit', {
-          method: 'POST',
-          body: formData
-        });
-        const data = await response.json();
-
-        if (response.ok && data.status?.includes('sent')) {
-          // Using a more modern, non-blocking notification is better,
-          // but for simplicity, alert is used here as in the original file.
-          alert('✅ Your consultation request has been sent successfully!');
-          consultationForm.reset();
-        } else {
-          alert(`❌ Error: ${data.error || data.status || 'Something went wrong.'}`);
-        }
-      } catch (error) {
-        console.error('Network error:', error);
-        alert(`❌ Network error: ${error.message}`);
-      } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }
-    });
-  }
 
   /* ─────────────────────────────────────────
    * 3. Card animation on scroll (Fade‑in)
