@@ -366,9 +366,17 @@ main {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(205, 92, 92, 0.2);
 }
-textarea.form-control {
-    resize: vertical;
-    min-height: 120px;
+
+/* NEW: Styles for the form row */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-row .form-group {
+    margin-bottom: 0; /* Remove default margin */
 }
 
 /* About Section */
@@ -497,7 +505,19 @@ textarea.form-control {
   RESPONSIVE DESIGN (Mobile First)
 ==================================================*/
 
-/* Small devices (tablets, 768px and up) */
+/* Small devices (e.g. large phones, 576px and up) */
+@media (min-width: 576px) {
+    /* NEW: Make form row side-by-side */
+    .form-row {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .form-row .form-group {
+        flex: 1; /* Each takes up half the space */
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     :root {
         --h1-font-size: 2.9rem;
@@ -535,7 +555,7 @@ textarea.form-control {
     }
 }
 
-/* Medium devices (desktops, 992px and up) */
+/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .logo h1 {
         font-size: 1.6rem;
@@ -566,7 +586,7 @@ textarea.form-control {
     }
 }
 
-/* Large devices (large desktops, 1200px and up) */
+/* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     :root {
         --h1-font-size: 3.4rem;
